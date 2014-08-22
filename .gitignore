@@ -6,3 +6,5 @@ Thumbs.db
 _templates
 _modified*
 .ftpass
+.sass-cache
+__modified
