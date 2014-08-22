@@ -1,0 +1,689 @@
+@charset "UTF-8";
+@import "_reset";
+@import "_mixin";
+@import "_base";
+@import "_layout";
+@import "_state";
+
+/* --------------------
+ module
+-------------------- */
+/* --------------------
+index
+    - icons sprites map
+    - heading
+    - unit
+    - box
+    - cols
+    - button
+    - icon
+    - text
+    - label
+    - hr
+    - form
+ 
+    - breadcrumb
+    - modal      z-index: 1000;
+    - pagetop    z-index: 1100;
+-------------------- */
+
+/* --------------------
+ icons sprites map
+-------------------- */
+$map-buttons_l: sprite-map("sprites/buttons_l/*.png",$spacing: 170px);
+$map-buttons_m: sprite-map("sprites/buttons_m/*.png",$spacing: 40px);
+$map-buttons_s: sprite-map("sprites/buttons_s/*.png",$spacing: 40px);
+$map-calendar: sprite-map("sprites/calendar/*.png",$spacing: 10px);
+//$map-footer: sprite-map("sprites/footer/*.png",$spacing: 40px);
+$map-flow: sprite-map("sprites/flow/*.png",$spacing: 0);
+$map-form: sprite-map("sprites/form/*.png",$spacing: 80px);
+$map-heading: sprite-map("sprites/heading/*.png",$spacing: 60px);
+$map-status: sprite-map("sprites/status/*.png",$spacing: 40px);
+
+/* --------------------
+ heading
+-------------------- */
+h1 {
+    margin-bottom: 15px;
+    padding: 5px 3px 5px 32px;
+    background-color: #514736;
+    @include sprites($map-heading, icn_h1, 5px, 5px);
+    font-size: 18px;
+    color: #fff;
+    line-height: 1.2;
+}
+
+h2 {
+    margin: 27px 5px 10px;
+    padding-left: 23px;
+    padding-bottom: 2px;
+    border-bottom: 1px dotted #8c1700;
+    @include sprites($map-heading, icn_h2, 0 ,2px);
+    font-size: 18px;
+    text-shadow: -1px -1px 0 rgba(0,0,0,0.1), 1px 1px 0 rgb(255,255,255);
+    line-height: 1.2;
+    &.none_style {
+        margin-top: 0;
+        padding: 0;
+        text-shadow: none;
+        border: none;
+        background: none;
+    }
+    .box & {
+        margin-right: 0;
+        margin-left: 0;
+    }
+    .col & {
+        margin-top: 0;
+    }
+}
+
+h3 {
+    margin: 22px 5px 10px;
+    padding-left: 21px;
+    padding-bottom: 2px;
+    border-bottom: 1px solid #c0af91;
+    @include sprites($map-heading, icn_h3, 0, 3px);
+    font-size: 17px;
+    line-height: 1.2;
+    &.none_style {
+        margin-top: 0;
+        padding: 0;
+        border: none;
+        background: none;
+    }
+    .box & {
+        margin-right: 0;
+        margin-left: 0;
+    }
+    .col & {
+        margin-top: 0;
+    }
+}
+
+h4 {
+    margin: 12px 5px 5px;
+    padding-left: 19px;
+    @include sprites($map-heading, icn_h4, 0, 3px);
+    font-size: 15px;
+    line-height: 1.2;
+    &.none_style {
+        margin-top: 0;
+        padding: 0;
+        border: none;
+        background: none;
+    }
+    .box & {
+        margin-right: 0;
+        margin-left: 0;
+    }
+    .col & {
+        margin-top: 0;
+    }
+}
+
+/* --------------------
+ flow
+-------------------- */
+.flow {
+}
+
+
+/* --------------------
+ unit
+-------------------- */
+.unit {
+    margin-top: 10px;
+}
+
+/* --------------------
+ box
+-------------------- */
+.box {
+    margin: 5px;
+    > h2:first-child {
+        margin-top: 0;
+    }
+}
+
+.topic_box {
+    padding: 5px;
+    background-color: #ebe4d1;
+}
+
+.attention_box {
+    padding: 15px 5px;
+    @include border_radius(4px);
+    background-color: #f6d8cc;
+}
+
+/* --------------------
+ cols
+-------------------- */
+.col-flex {
+    @include display_box;
+    margin-top: 5px;
+    .col {
+        @include box_flex;
+        width: 50%;
+        margin-right: 5px;
+        &:last-child {
+            margin-right: 0;
+        }
+    }
+    &.col-1of3 {
+        margin-top: 6px;
+        .col {
+            width: 33%;
+            margin-right: 6px;
+        }
+    }
+}
+.col-inline {
+    margin: 6px -5px 0 0;
+    overflow: hidden;
+    .col {
+        display: inline-block;
+    }
+    &.col-1of3 .col {
+        @include box_sizing;
+        width: 33.33%;
+        padding: 0 6px 0 0;
+    }
+    &.col-1of5 .col {
+        @include box_sizing;
+        width: 19%;
+        margin: 5px 0 0;
+    }
+}
+
+/* --------------------
+ button
+-------------------- */
+/* L size */
+.btn-l {
+    width: 100%;
+    margin: 10px 0;
+    .col > & {
+        margin: 0;
+    }
+    a {
+        @include box_sizing;
+        display: block;
+        width: 100%;
+        height: 40px;
+        padding: 5px;
+        @include border_radius(4px);
+        font-size: 17px;
+        text-align: center;
+        color: #fff;
+        text-decoration: none;
+        .icon {
+            display: inline-block;
+            height: 21px;
+            /* margin-right: 8px; */
+            vertical-align: middle;
+            line-height: 1;
+        }
+    }
+}
+
+/* M size */
+.btn-m {
+    width: 100%;
+    margin: 10px 0;
+    .col > & {
+        margin: 0;
+    }
+    a {
+        @include box_sizing;
+        display: block;
+        width: 100%;
+        height: 40px;
+        padding: 7px 15px 7px 8px;
+        border: 1px solid #d5c8af;
+        @include border_radius(4px);
+        @include sprites($map-buttons_m, icn_btn-m, right, 16px, -webkit-gradient(linear, left top, left bottom, color-stop(0%,#ffffff), color-stop(25%,#fbfaf6), color-stop(77%,#efe9da), color-stop(100%,#ebe4d2)));
+        @include sprites($map-buttons_m, icn_btn-m, right, 16px, -webkit-linear-gradient(top,  #ffffff 0%,#fbfaf6 25%,#efe9da 77%,#ebe4d2 100%));
+        @include sprites($map-buttons_m, icn_btn-m, right, 16px, linear-gradient(to bottom,  #ffffff 0%,#fbfaf6 25%,#efe9da 77%,#ebe4d2 100%));
+        font-size: 17px;
+        text-align: center;
+        color: #514736;
+        text-decoration: none;
+        .icon {
+            display: inline-block;
+            height: 21px;
+            /* margin-right: 5px; */
+            vertical-align: middle;
+            line-height: 1;
+        }
+    }
+}
+
+/* S size */
+.btn-s {
+    display: table;
+    width: 100%;
+    height: 40px;
+    margin: 10px 0;
+    .col & {margin :0;}
+    @include border_radius(4px);
+    a {
+        display: table-cell;
+        @include box_sizing;
+        vertical-align: middle;
+        width: 100%;
+        
+        padding: 2px 10px 0;
+        text-decoration: none;
+    }
+}
+
+/* --------------------
+ icon
+-------------------- */
+.icon-pc {
+    margin-left: 3px;
+}
+
+/* --------------------
+ text
+-------------------- */
+strong {
+    color: #8c1700;
+    font-weight: normal;
+}
+/* p, div */
+.notes {
+    font-size: 13px;
+    text-indent: -1em;
+    padding-left: 1em;
+}
+/* ol, ul */
+.noteslist {
+    margin-top: 0.5em;
+    > li {
+        font-size: 13px;
+        text-indent: -1em;
+        padding-left: 1em;
+    }
+}
+.numlist {
+    margin-top: 0.5em;
+    > li {
+        font-size: 13px;
+        .numlist-num {
+            color: #8c1700;
+        }
+    }
+}
+
+.link {
+    text-align: right;
+}
+.link-icon {
+    padding-right: 10px;
+    background: url(/common/images/icn_text_link.png) no-repeat right center;
+    @include background_size(6px);
+}
+
+/* --------------------
+ label
+-------------------- */
+.label {
+    display: inline-block;
+    padding: 0 5px;
+    background-color: #514736;
+    color: #fff;
+}
+
+/* --------------------
+ banner
+-------------------- */
+
+
+/* --------------------
+ hr
+-------------------- */
+hr {
+    display: block;
+    margin: 15px 0;
+    border: none;
+    border-bottom: 1px dotted #c0af91;
+}
+
+/* --------------------
+ form
+-------------------- */
+
+/* textbox, texearea
+-------------------- */
+input[type="text"], input[type="email"], input[type="tel"], input[type="number"], input[type="password"], textarea {
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  width: 100%;
+  height: 40px;
+  padding: 0 10px;
+  border: 1px solid #ccc;
+  color: #514736;
+  font-size: 14px;
+    &.is-error {
+        background-color: #f6d8cc;
+    }
+    &.confirm {
+        height: auto;
+        padding: 0;
+        border: none;
+        background-color: #f9f3e1;
+    }
+}
+
+/* search
+-------------------- */
+.form_search {
+    @include display_box;
+    .form_search-text {
+        @include box_flex;
+        @include box_sizing;
+        width: 75%;
+        margin-right: 5px;
+    }
+    .form_search-btn {
+        @include box_flex;
+        @include box_sizing;
+    }
+    .btn-m {
+        margin: 0;
+    }
+}
+
+/* form_select
+-------------------- */
+.form_select_yymmdd {
+    display: table;
+    border-collapse: separate;
+    width: 100%;
+    .form_select_yymmdd-select {
+        display: table-cell;
+        @include box_sizing;
+        width: 30%;
+        margin-right: 6px;
+        &:last-child {
+            margin-right: 0;
+        }
+    }
+    .form_select_yymmdd-text {
+        display: table-cell;
+        @include box_sizing;
+        width: 3%;
+        padding: 0 9px;
+        vertical-align: middle;
+        &:last-child {
+            padding-right: 0;
+        }
+    }
+}
+.form_select_yymm {
+    display: table;
+    border-collapse: separate;
+    width: 100%;
+    .form_select_yymm-select {
+        display: table-cell;
+        @include box_sizing;
+        width: 40%;
+        margin-right: 6px;
+        &:last-child {
+            margin-right: 0;
+        }
+    }
+    .form_select_yymm-text {
+        display: table-cell;
+        @include box_sizing;
+        width: 10%;
+        padding: 0 9px;
+        vertical-align: middle;
+        &:last-child {
+            padding-right: 0;
+        }
+    }
+}
+.form_select {
+    @include appearance_button;
+    @include box_sizing;
+    width: 100%;
+    height: 40px;
+    @include border_radius(4px);
+    padding:8px 20px 8px 8px;
+
+    border: 1px solid #d5c8af;
+    @include sprites($map-form, icn_form_selct, right, 16px, -webkit-gradient(linear, left top, left bottom, color-stop(0%,#ffffff), color-stop(25%,#fbfaf6), color-stop(77%,#efe9da), color-stop(100%,#ebe4d2)));
+    @include sprites($map-form, icn_form_selct, right, 16px, -webkit-linear-gradient(top,  #ffffff 0%,#fbfaf6 25%,#efe9da 77%,#ebe4d2 100%));
+    @include sprites($map-form, icn_form_selct, right, 16px, linear-gradient(to bottom,  #ffffff 0%,#fbfaf6 25%,#efe9da 77%,#ebe4d2 100%));
+    color: #514736;
+    font-size: 14px;
+    &.is-error {
+        @include sprites($map-form, icn_form_selct, right, 16px, -webkit-gradient(linear, left top, left bottom, color-stop(0%,#faebe0), color-stop(100%,#f6d8cc)));
+        @include sprites($map-form, icn_form_selct, right, 16px, -webkit-linear-gradient(top,  #faebe0 0%,#f6d8cc 100%));
+        @include sprites($map-form, icn_form_selct, right, 16px, linear-gradient(to bottom,  #faebe0 0%,#f6d8cc 100%));
+        color: #988565;
+    }
+}
+
+/* form_radio
+-------------------- */
+.form_radio {
+    label {
+        display: table;
+        width: 100%;
+    }
+    label + label {
+        margin-top: 5px;
+    }
+}
+.form_radio input[type="radio"] {
+    display: none;
+}
+.form_radio .form_radio-text {
+    display: table-cell;
+    @include box_sizing;
+    width: 100%;
+    height: 40px;
+    padding: 2px 4px 0 22px;
+    @include border_radius(4px);
+    background-color: #d5c8af;
+    @include sprites($map-form, icn_form_radio-off, 4px, 12px);
+    vertical-align: middle;
+    font-size: 17px;
+    line-height: 1.1;
+}
+.form_radio.neta .form_radio-text {
+    font-size: 11px;
+}
+.form_radio input[type="radio"]:checked + .form_radio-text{
+    background-color: #7c6a4f;
+    @include sprites($map-form, icn_form_radio-on, 4px, 12px);
+    color: #fff;
+}
+.form_radio input[type="radio"]:disabled + .form_radio-text{
+    background-color: #e0d5be;
+    @include sprites($map-form, icn_form_radio-disabled, 4px, 12px);
+    color: #988565;
+}
+.form_radio label {
+    position: relative;
+}
+.form_radio input[type="radio"]:disabled.is-soldout + .form_radio-text{
+    background: #acaba5;
+    @include sprites($map-form, icn_form_radio-soldout, 4px, 12px);
+    color: #cccccc;
+    padding-right: 56px;
+
+    .form_radio-soldout {
+        position: absolute;
+        top: 50%;
+        right: 5px;
+        margin-top: -15px;
+    }
+}
+
+/* form_checkbox
+-------------------- */
+.form_checkbox {
+    label {
+        display: table;
+        width: 100%;
+    }
+}
+.form_checkbox input[type="checkbox"] {
+    display: none;
+}
+.form_checkbox .form_checkbox-text {
+    display: table-cell;
+    @include box_sizing;
+    width: 100%;
+    height: 40px;
+    padding: 2px 4px 0 24px;
+    @include border_radius(4px);
+    background-color: #d5c8af;
+    @include sprites($map-form, icn_form_checkbox-off, 4px, 12px);
+    vertical-align: middle;
+    font-size: 17px;
+    line-height: 1.2;
+}
+.form_checkbox .form_checkbox-text.is-checked{
+    background-color: #7c6a4f;
+    @include sprites($map-form, icn_form_checkbox-on, 4px, 12px);
+    color: #fff;
+}
+
+
+/* --------------------
+ breadcrumb
+-------------------- */
+.breadcrumb {
+    display: block;
+    @include box_sizing;
+    width: 100%;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+ 
+    background-color: #d5c8af;
+    > li {
+        display: inline;
+        > a {
+            display: inline;
+            @include box_sizing;
+            padding: 5px 10px 8px 5px;
+            
+            background: url(/common/images/icn_breadcrumb_modifier.png) no-repeat right top;
+            @include background_size(10px);
+            line-height: 1.8;
+        }
+        > a.breadcrumb-home {
+            display: inline-block;
+            height: 25px;
+            padding: 0 10px 0 0;
+        }
+        > span {
+            display: inline;
+            @include box_sizing;
+            padding: 2px 0 2px 5px;
+        }
+    }
+}
+
+/* --------------------
+ tab
+-------------------- */
+.tab {
+    margin-top: 10px;
+    .tab_btn {
+        @include display_box;
+        padding-right: 5px;
+        border-bottom: 10px solid #988565;
+        > li {
+            @include box_flex;
+            width: 50%;
+            > a {
+                @include box_sizing;
+                display: block;
+                height: 48px;
+                margin: 0 0 0 5px;
+                padding: 10px 4px 4px;
+                border: 1px solid #d5c8af;
+                @include border_radius(4px);
+                background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#ffffff), color-stop(25%,#fbfaf6), color-stop(77%,#efe9da), color-stop(100%,#ebe4d2));
+                background: -webkit-linear-gradient(top,  #ffffff 0%,#fbfaf6 25%,#efe9da 77%,#ebe4d2 100%);
+                background: linear-gradient(to bottom,  #ffffff 0%,#fbfaf6 25%,#efe9da 77%,#ebe4d2 100%);
+                font-size: 17px;
+                text-align: center;
+                text-decoration: none;
+                color: #514736;
+            }
+            &.is-current {
+                > a {
+                    height: 53px;
+                    border: none;
+                    -webkit-border-radius: 4px 4px 0 0;
+                    border-radius: 4px 4px 0 0;
+                    background: none;
+                    background-color: #988565;
+                    color: #fff;
+                }
+            }
+        }
+    }
+}
+
+/* --------------------
+ modal
+-------------------- */
+.modal_bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #000;
+    opacity: 0.8;
+}
+.modal_content {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translateY(-50%);
+    transform: translateY(-50%);
+    width: 230px;
+    margin-left: -125px;
+    padding: 10px;
+    background-color: #f9f3e1;
+    z-index: 1000;
+}
+
+/* --------------------
+ nav
+-------------------- */
+
+/* --------------------
+ pagetop
+-------------------- */
+.pagetop {
+    position: fixed;
+    bottom: 5px;
+    right: 5px;
+    z-index: 1100;
+    display: none;
+    /* width: auto; */
+    padding: 20px 4px 4px 4px;
+    border: 2px solid #8c1700;
+    @include border_radius(4px);
+    background: url(/common/images/icn_pagetop.png) no-repeat center 9px, -webkit-gradient(linear, left top, left bottom, color-stop(0%,#fffffe), color-stop(19%,#fcfbf8), color-stop(77%,#efe9da), color-stop(100%,#ebe5d2));
+    background: url(/common/images/icn_pagetop.png) no-repeat center 9px, -webkit-linear-gradient(top,  #fffffe 0%,#fcfbf8 19%,#efe9da 77%,#ebe5d2 100%);
+    background: url(/common/images/icn_pagetop.png) no-repeat center 9px, linear-gradient(to bottom,  #fffffe 0%,#fcfbf8 19%,#efe9da 77%,#ebe5d2 100%);
+    background-size: 9px auto, auto auto;
+    box-shadow: 0px 0px 3px 1px rgba(0,0,0,0.4);
+    font-size: 17px;
+    font-weight: bold;
+    color: #8c1700;
+}

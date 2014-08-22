@@ -1,0 +1,68 @@
+@charset "UTF-8";
+
+/* 
+$var: #fff;
+*/
+
+/* for iOS3.2-6.1, Android2.1-4.3+ */
+@mixin display_box {
+  display: -webkit-box;
+  display: box;
+}
+@mixin box_flex {
+  -webkit-box-flex: 1;
+  box-flex: 1;
+}
+
+/* iOS7 */
+@mixin display_flex {
+  display: -wabkit-flex;
+  display: flex;
+}
+
+/* iOS7 */
+@mixin flex_wrap {
+  -webkit-flex-wrap: wrap;
+  flex-wrap: wrap;
+}
+
+@mixin flex_align_stretch {
+  -webkit-flex-align: stretch;
+  -webkit-align-items: stretch;
+  align-items: stretch;
+}
+
+@mixin box_sizing {
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+@mixin text_shadow($val) {
+  text-shadow: $val;
+}
+@mixin border_radius($val) {
+  border-radius: $val;
+}
+@mixin background_size($val) {
+  background-size: $val auto;
+}
+@mixin appearance_button {
+  -webkit-appearance: button;
+  appearance: button;
+}
+
+//　sprites
+@mixin sprites($map, $map-item, $pos-x:0, $posYplus:0, $gradient:'') {
+  $pos-y: round((nth(sprite-position($map, $map-item), 2) / 2) + $posYplus);
+  
+  @if $gradient != '' {
+    background-image: sprite-url($map), $gradient;
+    background-size: round(image-width(sprite-path($map)) / 2) round(image-height(sprite-path($map)) / 2), auto auto;
+    background-position: $pos-x $pos-y, 0 0;
+    background-repeat: no-repeat;
+  } @else {
+    background-image: sprite-url($map);
+    background-size: round(image-width(sprite-path($map)) / 2) round(image-height(sprite-path($map)) / 2);
+    background-position: $pos-x $pos-y;
+    background-repeat: no-repeat;
+  }
+}

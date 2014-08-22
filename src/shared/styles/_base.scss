@@ -1,0 +1,24 @@
+@charset "UTF-8";
+/* --------------------
+ base
+-------------------- */
+body {
+    font-family: Roboto, "Droid Snas", "ヒラギノ角ゴ ProN W3","Hiragino Kaku Gothic ProN", sans-serif;
+    font-size: 14px;
+    color: #2c2416;
+    position: relative;
+    margin: 0 auto;
+    background-color: #f9f3e1;
+    line-height: 1.5;
+    letter-spacing: 0;
+    -webkit-text-size-adjust: 100%;
+}
+
+code, pre {
+    font-family: inherit;
+}
+
+a {
+    color: #4d0d00;
+    text-decoration: underline;
+}
