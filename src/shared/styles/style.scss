@@ -33,12 +33,9 @@ index
 $map-buttons_l: sprite-map("sprites/buttons_l/*.png",$spacing: 170px);
 $map-buttons_m: sprite-map("sprites/buttons_m/*.png",$spacing: 40px);
 $map-buttons_s: sprite-map("sprites/buttons_s/*.png",$spacing: 40px);
-$map-calendar: sprite-map("sprites/calendar/*.png",$spacing: 10px);
 //$map-footer: sprite-map("sprites/footer/*.png",$spacing: 40px);
-$map-flow: sprite-map("sprites/flow/*.png",$spacing: 0);
 $map-form: sprite-map("sprites/form/*.png",$spacing: 80px);
 $map-heading: sprite-map("sprites/heading/*.png",$spacing: 60px);
-$map-status: sprite-map("sprites/status/*.png",$spacing: 40px);
 
 /* --------------------
  heading
@@ -47,7 +44,7 @@ h1 {
     margin-bottom: 15px;
     padding: 5px 3px 5px 32px;
     background-color: #514736;
-    @include sprites($map-heading, icn_h1, 5px, 5px);
+    //@include sprites($map-heading, icn_h1, 5px, 5px);
     font-size: 18px;
     color: #fff;
     line-height: 1.2;
@@ -58,7 +55,7 @@ h2 {
     padding-left: 23px;
     padding-bottom: 2px;
     border-bottom: 1px dotted #8c1700;
-    @include sprites($map-heading, icn_h2, 0 ,2px);
+    //@include sprites($map-heading, icn_h2, 0 ,2px);
     font-size: 18px;
     text-shadow: -1px -1px 0 rgba(0,0,0,0.1), 1px 1px 0 rgb(255,255,255);
     line-height: 1.2;
@@ -83,7 +80,7 @@ h3 {
     padding-left: 21px;
     padding-bottom: 2px;
     border-bottom: 1px solid #c0af91;
-    @include sprites($map-heading, icn_h3, 0, 3px);
+    //@include sprites($map-heading, icn_h3, 0, 3px);
     font-size: 17px;
     line-height: 1.2;
     &.none_style {
@@ -104,7 +101,7 @@ h3 {
 h4 {
     margin: 12px 5px 5px;
     padding-left: 19px;
-    @include sprites($map-heading, icn_h4, 0, 3px);
+    //@include sprites($map-heading, icn_h4, 0, 3px);
     font-size: 15px;
     line-height: 1.2;
     &.none_style {
@@ -243,9 +240,9 @@ h4 {
         padding: 7px 15px 7px 8px;
         border: 1px solid #d5c8af;
         @include border_radius(4px);
-        @include sprites($map-buttons_m, icn_btn-m, right, 16px, -webkit-gradient(linear, left top, left bottom, color-stop(0%,#ffffff), color-stop(25%,#fbfaf6), color-stop(77%,#efe9da), color-stop(100%,#ebe4d2)));
-        @include sprites($map-buttons_m, icn_btn-m, right, 16px, -webkit-linear-gradient(top,  #ffffff 0%,#fbfaf6 25%,#efe9da 77%,#ebe4d2 100%));
-        @include sprites($map-buttons_m, icn_btn-m, right, 16px, linear-gradient(to bottom,  #ffffff 0%,#fbfaf6 25%,#efe9da 77%,#ebe4d2 100%));
+        //@include sprites($map-buttons_m, icn_btn-m, right, 16px, -webkit-gradient(linear, left top, left bottom, color-stop(0%,#ffffff), color-stop(25%,#fbfaf6), color-stop(77%,#efe9da), color-stop(100%,#ebe4d2)));
+        //@include sprites($map-buttons_m, icn_btn-m, right, 16px, -webkit-linear-gradient(top,  #ffffff 0%,#fbfaf6 25%,#efe9da 77%,#ebe4d2 100%));
+        //@include sprites($map-buttons_m, icn_btn-m, right, 16px, linear-gradient(to bottom,  #ffffff 0%,#fbfaf6 25%,#efe9da 77%,#ebe4d2 100%));
         font-size: 17px;
         text-align: center;
         color: #514736;
@@ -456,15 +453,15 @@ input[type="text"], input[type="email"], input[type="tel"], input[type="number"]
     padding:8px 20px 8px 8px;
 
     border: 1px solid #d5c8af;
-    @include sprites($map-form, icn_form_selct, right, 16px, -webkit-gradient(linear, left top, left bottom, color-stop(0%,#ffffff), color-stop(25%,#fbfaf6), color-stop(77%,#efe9da), color-stop(100%,#ebe4d2)));
-    @include sprites($map-form, icn_form_selct, right, 16px, -webkit-linear-gradient(top,  #ffffff 0%,#fbfaf6 25%,#efe9da 77%,#ebe4d2 100%));
-    @include sprites($map-form, icn_form_selct, right, 16px, linear-gradient(to bottom,  #ffffff 0%,#fbfaf6 25%,#efe9da 77%,#ebe4d2 100%));
+    //@include sprites($map-form, icn_form_selct, right, 16px, -webkit-gradient(linear, left top, left bottom, color-stop(0%,#ffffff), color-stop(25%,#fbfaf6), color-stop(77%,#efe9da), color-stop(100%,#ebe4d2)));
+    //@include sprites($map-form, icn_form_selct, right, 16px, -webkit-linear-gradient(top,  #ffffff 0%,#fbfaf6 25%,#efe9da 77%,#ebe4d2 100%));
+    //@include sprites($map-form, icn_form_selct, right, 16px, linear-gradient(to bottom,  #ffffff 0%,#fbfaf6 25%,#efe9da 77%,#ebe4d2 100%));
     color: #514736;
     font-size: 14px;
     &.is-error {
-        @include sprites($map-form, icn_form_selct, right, 16px, -webkit-gradient(linear, left top, left bottom, color-stop(0%,#faebe0), color-stop(100%,#f6d8cc)));
-        @include sprites($map-form, icn_form_selct, right, 16px, -webkit-linear-gradient(top,  #faebe0 0%,#f6d8cc 100%));
-        @include sprites($map-form, icn_form_selct, right, 16px, linear-gradient(to bottom,  #faebe0 0%,#f6d8cc 100%));
+        //@include sprites($map-form, icn_form_selct, right, 16px, -webkit-gradient(linear, left top, left bottom, color-stop(0%,#faebe0), color-stop(100%,#f6d8cc)));
+        //@include sprites($map-form, icn_form_selct, right, 16px, -webkit-linear-gradient(top,  #faebe0 0%,#f6d8cc 100%));
+        //@include sprites($map-form, icn_form_selct, right, 16px, linear-gradient(to bottom,  #faebe0 0%,#f6d8cc 100%));
         color: #988565;
     }
 }
@@ -491,7 +488,7 @@ input[type="text"], input[type="email"], input[type="tel"], input[type="number"]
     padding: 2px 4px 0 22px;
     @include border_radius(4px);
     background-color: #d5c8af;
-    @include sprites($map-form, icn_form_radio-off, 4px, 12px);
+    //@include sprites($map-form, icn_form_radio-off, 4px, 12px);
     vertical-align: middle;
     font-size: 17px;
     line-height: 1.1;
@@ -501,12 +498,12 @@ input[type="text"], input[type="email"], input[type="tel"], input[type="number"]
 }
 .form_radio input[type="radio"]:checked + .form_radio-text{
     background-color: #7c6a4f;
-    @include sprites($map-form, icn_form_radio-on, 4px, 12px);
+    //@include sprites($map-form, icn_form_radio-on, 4px, 12px);
     color: #fff;
 }
 .form_radio input[type="radio"]:disabled + .form_radio-text{
     background-color: #e0d5be;
-    @include sprites($map-form, icn_form_radio-disabled, 4px, 12px);
+    //@include sprites($map-form, icn_form_radio-disabled, 4px, 12px);
     color: #988565;
 }
 .form_radio label {
@@ -514,7 +511,7 @@ input[type="text"], input[type="email"], input[type="tel"], input[type="number"]
 }
 .form_radio input[type="radio"]:disabled.is-soldout + .form_radio-text{
     background: #acaba5;
-    @include sprites($map-form, icn_form_radio-soldout, 4px, 12px);
+    //@include sprites($map-form, icn_form_radio-soldout, 4px, 12px);
     color: #cccccc;
     padding-right: 56px;
 
@@ -545,14 +542,14 @@ input[type="text"], input[type="email"], input[type="tel"], input[type="number"]
     padding: 2px 4px 0 24px;
     @include border_radius(4px);
     background-color: #d5c8af;
-    @include sprites($map-form, icn_form_checkbox-off, 4px, 12px);
+    //@include sprites($map-form, icn_form_checkbox-off, 4px, 12px);
     vertical-align: middle;
     font-size: 17px;
     line-height: 1.2;
 }
 .form_checkbox .form_checkbox-text.is-checked{
     background-color: #7c6a4f;
-    @include sprites($map-form, icn_form_checkbox-on, 4px, 12px);
+    //@include sprites($map-form, icn_form_checkbox-on, 4px, 12px);
     color: #fff;
 }
 

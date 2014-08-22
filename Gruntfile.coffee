@@ -26,6 +26,7 @@ module.exports = (grunt) ->
 
     copyChanged:
       options:
+        dest: "__modified"
         watchTask: true
         checksum: true
         dirs: ['htdocs/**/']
@@ -36,10 +37,10 @@ module.exports = (grunt) ->
           host: "example.com"
           port: 21
           authKey: "key1" ## SEE .ftppass
-        src: "_modified/htdocs"
+        src: "__modified/htdocs"
         dest: "/test_dir"
         server_sep: '/'
-        exclusions: ["_modified/htdocs/**/.DS_Store"]
+        exclusions: ["__modified/htdocs/**/.DS_Store"]
 
     esteWatch:
       options:
@@ -68,6 +69,8 @@ module.exports = (grunt) ->
           proxy:
             host: 'localhost'
             port: 9000
+#          server:
+#            baseDir: "htdocs"
 
     connect:
       server:
@@ -100,6 +103,13 @@ module.exports = (grunt) ->
         cwd: 'bower_components/'
         src: ['*/*.js', '*/*min.js', '*/*-min.js', '*/*.map']
         dest: 'htdocs/shared/scripts/lib/'
+      preupload:
+        expand:true
+        cwd: '__modified'
+        src: ['**/*']
+        dest: do -> "__modified_"+new Date().getTime()
+
+    clean: ['__modified']
 
     coffee:
       compile:
@@ -131,12 +141,11 @@ module.exports = (grunt) ->
           outputStyle: 'expanded'
           noLineComments: true
           debugInfo: false
-          httpPath : '/'
-          basePath : 'htdocs/'
-          #basePath : 'htdocs/kamatora/'
+          #httpPath : '/'
+          #basePath : 'htdocs/'
           sassDir: 'src/'
           cssDir: 'htdocs/'
-          imagesDir: 'common/images/'
+          imagesDir: 'htdocs/common/images/'
           assetCacheBuster: false
 
     testem:
@@ -168,6 +177,5 @@ module.exports = (grunt) ->
           preserveLicenseComments: false
           useSourceUrl:true
 
-
   grunt.registerTask 'default', ['copy:bower', 'browser_sync', 'copyChanged', 'esteWatch']
-  grunt.registerTask 'dev_deploy', ['ftp-deploy:dev']
+  grunt.registerTask 'dev_deploy', ['ftp-deploy:dev', 'copy:preupload', 'clean']
